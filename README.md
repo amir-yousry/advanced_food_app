@@ -19,10 +19,6 @@ The application focuses on clean layouts, delicious food presentation, intuitive
 
 # 📌 Overview
 
-<p align="center">
-  <img src="assets/screenshots/preview.jpg" alt="Hungry Flutter App">
-</p>
-
 **Hungry App** is a Flutter-based food delivery application that provides users with a complete food ordering journey — from discovering meals and viewing product details to adding items to the cart, completing checkout, and confirming a successful payment.
 
 The application follows a modern and user-friendly design system with clean spacing, attractive food-focused layouts, intuitive interactions, and reusable components.
