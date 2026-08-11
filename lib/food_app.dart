@@ -12,7 +12,7 @@ class FoodApp extends StatelessWidget {
       title: 'Food App',
       debugShowCheckedModeBanner: false,
       //initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
-      initialRoute: Routes.splashScreen,
+      initialRoute: Routes.loginScreen,
       onGenerateRoute: appRouter.generateRoute,
     );
   }
