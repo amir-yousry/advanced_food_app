@@ -7,6 +7,7 @@ import 'package:food_app/feature/login/ui/login_screen.dart';
 import 'package:food_app/feature/product_details/ui/product_details_screen.dart';
 import 'package:food_app/feature/profile/ui/profile_screen.dart';
 import 'package:food_app/feature/sign_up/ui/sign_up_screen.dart';
+import 'package:food_app/feature/splash/splash_screen.dart';
 import 'package:food_app/feature/success_payment/ui/success_payment_screen.dart';
 
 class AppRouter {
@@ -15,6 +16,8 @@ class AppRouter {
     //final arguments = settings.arguments;
 
     switch (settings.name) {
+      case Routes.splashScreen:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.signUpScreen:
