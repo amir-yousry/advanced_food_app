@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/routing/app_router.dart';
-import 'package:food_app/core/routing/routes.dart';
+import 'package:food_app/core/routes/app_router.dart';
+import 'package:food_app/core/routes/routes.dart';
 
 class FoodApp extends StatelessWidget {
   final AppRouter appRouter;
