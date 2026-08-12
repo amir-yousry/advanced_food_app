@@ -62,7 +62,12 @@ class _LoginViewState extends State<LoginScreen> {
                       const Gap(20),
 
                       /// login
-                      CustomAuthButton(text: 'Login', onTap: () {}),
+                      CustomAuthButton(
+                        text: 'Login',
+                        onTap: () {
+                          context.pushReplacementNamed(Routes.mainScreen);
+                        },
+                      ),
                     ],
                   ),
                 ),
