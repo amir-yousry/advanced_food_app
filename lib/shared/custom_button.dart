@@ -4,6 +4,16 @@ import 'package:food_app/core/theme/colors.dart';
 import 'custom_text.dart';
 
 class CustomButton extends StatelessWidget {
+  final String text;
+  final Function()? onTap;
+  final double? width;
+  final double? height;
+  final Color? color;
+  final double? radius;
+  final Color? textColor;
+  final Widget? widget;
+  final double? gap;
+
   const CustomButton({
     super.key,
     required this.text,
@@ -16,16 +26,6 @@ class CustomButton extends StatelessWidget {
     this.widget,
     this.gap,
   });
-
-  final String text;
-  final Function()? onTap;
-  final double? width;
-  final double? height;
-  final Color? color;
-  final double? radius;
-  final Color? textColor;
-  final Widget? widget;
-  final double? gap;
 
   @override
   Widget build(BuildContext context) {
