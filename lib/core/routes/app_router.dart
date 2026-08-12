@@ -3,7 +3,7 @@ import 'package:food_app/core/routes/routes.dart';
 import 'package:food_app/feature/cart/ui/cart_screen.dart';
 import 'package:food_app/feature/checkout/ui/checkout_screen.dart';
 import 'package:food_app/feature/auth/ui/login_screen.dart';
-import 'package:food_app/feature/order_history/ui/order_history_screen.dart';
+import 'package:food_app/feature/orders_history/ui/order_history_screen.dart';
 import 'package:food_app/feature/product_details/ui/product_details_screen.dart';
 import 'package:food_app/feature/profile/ui/profile_screen.dart';
 import 'package:food_app/feature/auth/ui/sign_up_screen.dart';
