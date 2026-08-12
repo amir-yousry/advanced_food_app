@@ -95,17 +95,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          selecetdCategory = index;
+                          setState(() => selecetdCategory = index);
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Chip(
-                            label: CustomText(
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              color: selecetdCategory == index
+                                  ? AppColors.primary
+                                  : Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: CustomText(
                               text: category[index],
                               size: 14,
                               weight: FontWeight.w500,
+                              color: selecetdCategory == index
+                                  ? Colors.white
+                                  : Colors.grey.shade700,
                             ),
-                            backgroundColor: Colors.grey.shade200,
                           ),
                         ),
                       );
