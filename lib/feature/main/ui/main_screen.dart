@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_app/core/theme/colors.dart';
 import 'package:food_app/feature/cart/ui/cart_screen.dart';
 import 'package:food_app/feature/home/ui/home_screen.dart';
 import 'package:food_app/feature/order_history/ui/order_history_screen.dart';
 import 'package:food_app/feature/profile/ui/profile_screen.dart';
-import 'package:food_app/shared/custom_text.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -28,42 +28,77 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: IndexedStack(index: currentIndex, children: screens),
 
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            activeIcon: Icon(CupertinoIcons.house_fill),
-            label: 'Home',
-          ),
-
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.shopping_cart),
-            activeIcon: Badge(
-              label: CustomText(text: '1', size: 10),
-              child: Icon(CupertinoIcons.cart_fill_badge_plus),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          decoration: BoxDecoration(
+            color: AppColors.primary,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
             ),
-            label: 'Cart',
           ),
+          child: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
 
-          BottomNavigationBarItem(
-            label: 'Order History',
-            icon: Icon(Icons.table_bar_outlined),
-            activeIcon: Icon(Icons.table_bar_rounded),
-          ),
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.transparent,
 
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            activeIcon: Icon(CupertinoIcons.person_fill),
-            label: 'Profile',
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white60,
+
+            selectedFontSize: 12,
+            unselectedFontSize: 11,
+
+            showUnselectedLabels: true,
+
+            items: [
+              const BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.home, size: 23),
+                activeIcon: Icon(CupertinoIcons.house_fill, size: 24),
+                label: 'Home',
+              ),
+
+              BottomNavigationBarItem(
+                icon: Badge(
+                  isLabelVisible: true,
+                  label: const Text(
+                    '1',
+                    style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+                  ),
+                  child: const Icon(CupertinoIcons.cart, size: 23),
+                ),
+                activeIcon: Badge(
+                  isLabelVisible: true,
+                  label: const Text(
+                    '1',
+                    style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold),
+                  ),
+                  child: const Icon(CupertinoIcons.cart_fill, size: 24),
+                ),
+                label: 'Cart',
+              ),
+
+              const BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.time, size: 23),
+                activeIcon: Icon(CupertinoIcons.time_solid, size: 24),
+                label: 'Orders',
+              ),
+
+              const BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.person, size: 23),
+                activeIcon: Icon(CupertinoIcons.person_fill, size: 24),
+                label: 'Profile',
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
