@@ -7,6 +7,6 @@ class Routes {
   static const String cartScreen = '/cartScreen';
   static const String checkoutScreen = '/checkoutScreen';
   static const String successPaymentScreen = '/successPaymentScreen';
-  static const String orderHistoryScreen = '/orderHistoryScreen';
+  static const String ordersHistoryScreen = '/ordersHistoryScreen';
   static const String profileScreen = '/profileScreen';
 }
