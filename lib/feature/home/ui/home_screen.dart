@@ -53,6 +53,7 @@ class HomeScreen extends StatelessWidget {
                 /// Search Bar
                 Material(
                   elevation: 2,
+                  borderRadius: BorderRadius.circular(20),
                   shadowColor: Colors.grey,
                   child: TextField(
                     decoration: InputDecoration(
@@ -60,23 +61,17 @@ class HomeScreen extends StatelessWidget {
                       prefixIcon: const Icon(CupertinoIcons.search),
 
                       border: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
-                        ),
+                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(color: Colors.white),
                       ),
 
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
-                        ),
+                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(color: Colors.white),
                       ),
-                      
+
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
-                        ),
+                        borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(color: Colors.white),
                       ),
                     ),
@@ -106,6 +101,68 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
+
+                const Gap(25),
+
+                /// Products
+                Expanded(
+                  child: GridView.builder(
+                    itemCount: 10,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 20,
+                          crossAxisSpacing: 20,
+                          childAspectRatio: 0.65,
+                        ),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade200,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade300,
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomText(
+                                    text: 'Product Name',
+                                    size: 16,
+                                    weight: FontWeight.w600,
+                                  ),
+                                  const Gap(5),
+                                  CustomText(
+                                    text: '\$99.99',
+                                    size: 14,
+                                    weight: FontWeight.w500,
+                                    color: AppColors.primary,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                const Gap(25),
               ],
             ),
           ),
