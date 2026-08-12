@@ -81,7 +81,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       CustomAuthButton(
                         text: 'Sign up',
                         isIcon: false,
-                        onTap: () {},
+                        onTap: () {
+                          context.pushReplacementNamed(Routes.mainScreen);
+                        },
                       ),
                     ],
                   ),
