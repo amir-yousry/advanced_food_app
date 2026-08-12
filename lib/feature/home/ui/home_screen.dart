@@ -5,9 +5,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:food_app/core/theme/colors.dart';
 import 'package:food_app/shared/custom_text.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selecetdCategory = 0;
   final List category = ['All', 'Combo', 'Sliders', 'Classic', 'Hot'];
 
   @override
@@ -87,15 +93,20 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: category.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Chip(
-                          label: CustomText(
-                            text: category[index],
-                            size: 14,
-                            weight: FontWeight.w500,
+                      return GestureDetector(
+                        onTap: () {
+                          selecetdCategory = index;
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Chip(
+                            label: CustomText(
+                              text: category[index],
+                              size: 14,
+                              weight: FontWeight.w500,
+                            ),
+                            backgroundColor: Colors.grey.shade200,
                           ),
-                          backgroundColor: Colors.grey.shade200,
                         ),
                       );
                     },
@@ -113,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                           crossAxisCount: 2,
                           mainAxisSpacing: 20,
                           crossAxisSpacing: 20,
-                          childAspectRatio: 0.65,
+                          childAspectRatio: 0.6,
                         ),
                     itemBuilder: (context, index) {
                       return Container(
@@ -144,6 +155,12 @@ class HomeScreen extends StatelessWidget {
                                     text: 'Product Name',
                                     size: 16,
                                     weight: FontWeight.w600,
+                                  ),
+                                  const Gap(0),
+                                  CustomText(
+                                    text: 'Product description',
+                                    size: 12,
+                                    weight: FontWeight.w400,
                                   ),
                                   const Gap(5),
                                   CustomText(
