@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/core/theme/colors.dart';
 import 'package:food_app/feature/cart/ui/cart_screen.dart';
 import 'package:food_app/feature/home/ui/home_screen.dart';
-import 'package:food_app/feature/order_history/ui/order_history_screen.dart';
+import 'package:food_app/feature/orders_history/ui/orders_history_screen.dart';
 import 'package:food_app/feature/profile/ui/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> screens = const [
     HomeScreen(),
     CartScreen(),
-    OrderHistoryScreen(),
+    OrdersHistoryScreen(),
     ProfileScreen(),
   ];
 
@@ -29,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
       body: IndexedStack(index: currentIndex, children: screens),
 
       bottomNavigationBar: SafeArea(
+        top: false,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           decoration: BoxDecoration(
@@ -38,6 +39,7 @@ class _MainScreenState extends State<MainScreen> {
               topRight: Radius.circular(30),
             ),
           ),
+
           child: BottomNavigationBar(
             currentIndex: currentIndex,
             onTap: (index) {
