@@ -53,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     CircleAvatar(radius: 30),
                   ],
                 ),
-
                 const Gap(25),
 
                 /// Search Bar
@@ -83,7 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-
                 const Gap(25),
 
                 /// Category
@@ -124,12 +122,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-
                 const Gap(25),
 
                 /// Products
                 Expanded(
                   child: GridView.builder(
+                    physics: const BouncingScrollPhysics(),
                     itemCount: 10,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -168,7 +166,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                     size: 16,
                                     weight: FontWeight.w600,
                                   ),
-                                  const Gap(0),
                                   CustomText(
                                     text: 'Product description',
                                     size: 12,
@@ -190,8 +187,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
-
-                const Gap(25),
               ],
             ),
           ),
