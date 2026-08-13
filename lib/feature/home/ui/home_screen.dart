@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_app/core/helpers/extensions.dart';
+import 'package:food_app/core/routes/routes.dart';
 import 'package:food_app/core/theme/colors.dart';
 import 'package:food_app/shared/custom_text.dart';
 
@@ -13,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selecetdCategory = 0;
+  int selectedCategory = 0;
   final List category = ['All', 'Combo', 'Sliders', 'Classic', 'Hot'];
 
   @override
@@ -93,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          setState(() => selecetdCategory = index);
+                          setState(() => selectedCategory = index);
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
@@ -103,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
-                              color: selecetdCategory == index
+                              color: selectedCategory == index
                                   ? AppColors.primary
                                   : Colors.grey.shade200,
                               borderRadius: BorderRadius.circular(15),
@@ -112,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               text: category[index],
                               size: 14,
                               weight: FontWeight.w500,
-                              color: selecetdCategory == index
+                              color: selectedCategory == index
                                   ? Colors.white
                                   : Colors.grey.shade700,
                             ),
@@ -132,56 +134,78 @@ class _HomeScreenState extends State<HomeScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
-                          mainAxisSpacing: 20,
-                          crossAxisSpacing: 20,
-                          childAspectRatio: 0.6,
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 10,
+                          childAspectRatio: 185 / 225, //0.62,
                         ),
                     itemBuilder: (context, index) {
-                      return Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: 150,
-                              decoration: BoxDecoration(
-                                color: Colors.grey.shade300,
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(20),
-                                  topRight: Radius.circular(20),
+                      return GestureDetector(
+                        onTap: () {
+                          //Navigator.pushNamed(context,Routes.productDetailesScreen);
+                          context.pushNamed(Routes.productDetailesScreen);
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: SizedBox(
+                            width: 200,
+                            height: 200,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 150,
+                                  decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(20),
+                                      topRight: Radius.circular(20),
+                                    ),
+                                    image: const DecorationImage(
+                                      image: AssetImage('assets/test/test.png'),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CustomText(
+                                        text: 'Product Name',
+                                        size: 16,
+                                        weight: FontWeight.w600,
+                                      ),
+                                      CustomText(
+                                        text: 'Product description',
+                                        size: 12,
+                                        weight: FontWeight.w400,
+                                      ),
+                                      const Gap(5),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.star,
+                                            color: Colors.amber,
+                                            size: 14,
+                                          ),
+                                          const Gap(5),
+                                          CustomText(
+                                            text: '4.5',
+                                            size: 14,
+                                            weight: FontWeight.w500,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    text: 'Product Name',
-                                    size: 16,
-                                    weight: FontWeight.w600,
-                                  ),
-                                  CustomText(
-                                    text: 'Product description',
-                                    size: 12,
-                                    weight: FontWeight.w400,
-                                  ),
-                                  const Gap(5),
-                                  CustomText(
-                                    text: '\$99.99',
-                                    size: 14,
-                                    weight: FontWeight.w500,
-                                    color: AppColors.primary,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       );
                     },
