@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisCount: 2,
                           mainAxisSpacing: 15,
                           crossAxisSpacing: 10,
-                          childAspectRatio: 185 / 225, //0.62,
+                          childAspectRatio: 0.62,
                         ),
                     itemBuilder: (context, index) {
                       return GestureDetector(
