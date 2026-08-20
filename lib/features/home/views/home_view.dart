@@ -14,7 +14,7 @@ import '../../../core/network/api_error.dart';
 import '../../../shared/custom_snack.dart';
 import '../../auth/data/auth_repo.dart';
 import '../../auth/data/user_model.dart';
-import '../../product_detail/views/product_details_view.dart';
+import '../../product_details/views/product_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
