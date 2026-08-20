@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/features/home/views/home_view.dart';
 import 'package:food_app/features/auth/views/profile_view.dart';
 import 'package:food_app/features/cart/views/cart_view.dart';
-import 'package:food_app/features/orderHistory/views/order_history_view.dart';
+import 'package:food_app/features/order_history/views/order_history_view.dart';
 import 'package:food_app/shared/custom_text.dart';
 import 'package:food_app/shared/glass_nav.dart';
 
